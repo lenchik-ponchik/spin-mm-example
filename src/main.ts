@@ -3,8 +3,7 @@ import * as dotenvFlow from 'dotenv-flow'
 import logger from './logger/index.js'
 import config from './configs/config.js'
 import { GridBot } from './bots/grid.js'
-import { PerpGridBot } from './bots/perpGrid.js'
-import { PerpTraderBot } from './bots/perpTrader.js'
+import { PerpExampleBot } from './bots/perpExample.js'
 
 dotenvFlow.config()
 
@@ -34,13 +33,7 @@ const bootstrap = async () => {
         await GridBot()
         break
       case 'perp':
-        if (config.get('trader.enable')) {
-          logger.info('Starting Perp Trader Bot')
-          await PerpTraderBot()
-        } else {
-          logger.info('Starting Perp Grid Bot')
-          await PerpGridBot()
-        }
+        await PerpExampleBot()
         break
     }
   } catch (err) {

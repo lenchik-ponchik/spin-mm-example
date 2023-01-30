@@ -2,20 +2,27 @@
   "account_id": "",
   "private_key": "",
   "network": "testnet",
+  "market": "perp",
+  "batched": true,
   "grid": {
     "market_id": 1,
-    "max_base": 1500,
-    "max_quote": 100000,
-    "inventory_usage": 1,
-    "spread": 0.5,
-    "levels": 3,
-    "levels_step": 0.01,
-    "size_reversal": 0.8
+    "max_base": 1000000,
+    "max_quote": 0,
+    "inventory_usage": 0.8,
+    "spread": 0.1,
+    "levels": 5,
+    "levels_step": 0.001,
+    "size_reversal": 0.9
   },
   "price": {
     "source": "binance",
-    "source_ticker": "NEAR/USDT",
+    "source_ticker": "NEARUSDT",
     "source_check_interval": 5000,
-    "trigger": 0.5
+    "trigger": 0.05
+  },
+  "trigger": {
+    "trigger_strategy": "levels",
+    "levels_trigger": 1,
+    "trigger_check_interval": 5000
   }
 }
